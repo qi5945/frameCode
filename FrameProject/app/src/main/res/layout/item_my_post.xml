@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@color/colorWhite">
+
+    <FrameLayout
+            android:id="@+id/fl_pic"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="10dp">
+
+        <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+    </FrameLayout>
+
+    <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/fl_pic"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="你参加南京不喜欢首南街道南城街道你房间号你才能参加"
+            android:textColor="#333333"
+            android:textSize="14sp"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@+id/fl_pic"/>
+
+    <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/civ_avatar"
+            android:text="才呢就是你的"
+            android:textColor="#999999"
+            android:textSize="12sp"/>
+
+    <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/civ_avatar"
+            android:text="2019010245"
+            android:textColor="#999999"
+            android:textSize="11sp"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:background="#eeeeee"/>
+
+    <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_bound"
+            android:drawablePadding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="5币"
+            android:textColor="#ff000000"
+            android:textSize="15sp"/>
+
+    <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp"
+            android:text="置顶"
+            android:textColor="#ffea3d08"
+            android:textSize="11sp"/>
+</RelativeLayout>

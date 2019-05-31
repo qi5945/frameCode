@@ -1,0 +1,1 @@
+include ':app', ':baseUILibrary', ':baseUtilsLibrary', ':baselibs', ':XxAnyPay', ':multi-image-selector', ':adslibrary', ':pickerview', ':wheelview', ':amap3dlibrary', ':banner'

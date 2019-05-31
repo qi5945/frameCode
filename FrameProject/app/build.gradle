@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def date = new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("GMT+08"))
+            if (variant.buildType.name == 'debug') {
+                outputFileName = "${app_name}_${date}_v${versionName}_debug.apk"
+            }
+            if (variant.buildType.name == 'release') {
+                outputFileName = "${app_name}_${date}_v${versionName}.apk"
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'MicroPoleTD.jks'
+            storePassword "android"
+            keyAlias "micro pole td"
+            keyPassword "android"
+        }
+
+        debug {
+            storeFile file("MicroPoleTD.jks")
+            storePassword "android"
+            keyAlias "micro pole td"
+            keyPassword "android"
+        }
+
+    }
+
+    compileSdkVersion compile_sdk_version
+    defaultConfig {
+        applicationId "com.micropole.chebianjie"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName "$version_name"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api project(':baselibs')
+    api project(':XxAnyPay')
+    api project(':multi-image-selector')
+
+    api project(':adslibrary')
+    api project(':amap3dlibrary')
+    api project(':banner')
+}
